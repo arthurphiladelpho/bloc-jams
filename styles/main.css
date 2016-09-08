@@ -90,3 +90,15 @@ body {
 @media (min-width: 1024px) {
   html { font-size: 120%; }
 }
+
+.navbar-link:active {
+  color: rgb(233,50,117);
+  background-color: white;
+}
+
+.navbar-link:hover {
+  color: #ffaa44;
+}
+
+
+
