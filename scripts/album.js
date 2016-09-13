@@ -75,7 +75,20 @@ var albumPicasso = {
 };
 
 window.onload = function() {
-     setCurrentAlbum(albumPicasso);
+     setCurrentAlbum(albumKymil);
  };
+
+var artist = document.getElementsByClassName("album-view-artist")[0];
+
+var cover = document.getElementsByClassName("album-cover-art")[0];
+cover.addEventListener("click", function(){
+    if(artist.innerText === 'Pablo Picasso'){ 
+        setCurrentAlbum(albumMarconi);
+    } else if(artist.innerText === 'Guglielmo Marconi'){
+        setCurrentAlbum(albumKymil);     
+    } else {
+        setCurrentAlbum(albumPicasso);
+    }
+});
 
 
