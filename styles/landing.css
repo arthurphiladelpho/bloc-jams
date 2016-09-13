@@ -34,7 +34,30 @@ body.landing {
      position: relative;
      padding: 2rem;
      text-align: center;
- }
+     /*The styles below will animate the point class elements by scaling and fading*/
+     /*Opacity 0 is the image completely transparent, this means that when the webpage first loads this element will be invisible.*/
+     opacity: 0;
+     /*Webkit refers to  safari. While Moz refers to mozilla firefox. Does */
+     /*Here we are making the point class elements 90% of their original size.*/
+     /*And we're moving it nicely 3rem down from it's original position.*/
+     -webkit-transform: scaleX(0.9) translateY(3rem);
+     -moz-transform: scaleX(0.9) translateY(3rem);
+     transform: scaleX(0.9) translateY(3rem);
+     /*The transition property can have many values:
+          - transition-property, (in this case we are selecting all the CSS properties of the element)
+          - transition-duration, (we wan our transition to last a quarter of a second)
+          - transition-timing-function (the ease-in-out value will ease in slowly and then accelerate to the end)
+     */
+     -webkit-transition: all 0.25s ease-in-out;
+     -moz-transition: all 0.25s ease-in-out;
+     transition: all 0.25s ease-in-out;
+     /*Lastly we add a transition delay, to make the animation less agressive*/
+     -webkit-transition-delay: 0.2s;
+     -moz-transition-delay: 0.2s;
+     transition-delay: 0.2s;
+
+ }   
+
  
  .point .point-title {
      font-size: 1.25rem;
