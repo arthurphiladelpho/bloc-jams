@@ -40,21 +40,22 @@ body.landing {
      /*Webkit refers to  safari. While Moz refers to mozilla firefox. Does */
      /*Here we are making the point class elements 90% of their original size.*/
      /*And we're moving it nicely 3rem down from it's original position.*/
-     -webkit-transform: scaleX(0.9) translateY(3rem);
-     -moz-transform: scaleX(0.9) translateY(3rem);
-     transform: scaleX(0.9) translateY(3rem);
+     -webkit-transform: scaleX(0.3) translateY(3rem);
+     -moz-transform: scaleX(0.3) translateY(3rem);
+     transform: scaleX(0.3) translateY(3rem);
      /*The transition property can have many values:
           - transition-property, (in this case we are selecting all the CSS properties of the element)
           - transition-duration, (we wan our transition to last a quarter of a second)
           - transition-timing-function (the ease-in-out value will ease in slowly and then accelerate to the end)
      */
-     -webkit-transition: all 0.25s ease-in-out;
-     -moz-transition: all 0.25s ease-in-out;
-     transition: all 0.25s ease-in-out;
+     -webkit-transition: all 0.5s ease-in-out;
+     -moz-transition: all 0.5s ease-in-out;
+     transition: all 0.5s ease-in-out;
      /*Lastly we add a transition delay, to make the animation less agressive*/
-     -webkit-transition-delay: 0.2s;
-     -moz-transition-delay: 0.2s;
-     transition-delay: 0.2s;
+     -webkit-transition-delay: 0.35s;
+     -moz-transition-delay: 0.35s;
+     transition-delay: 0.35s;
+     
 
  }   
 
