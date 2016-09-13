@@ -28,6 +28,21 @@ var albumPicasso = {
      ]
  };
 
+ var albumKymil = {
+     title: 'Odd Prophet',
+     artist: 'Kymil',
+     label: 'Independent',
+     year: '2017',
+     albumArtUrl: 'assets/images/album_covers/20.png',
+     songs: [
+         { title: 'Funny To Me', duration: '1:01' },
+         { title: 'You Talk Big Game', duration: '5:01' },
+         { title: 'Shut Up and Work', duration: '3:21'},
+         { title: 'Zip Up Yo Face?', duration: '3:14' },
+         { title: 'No Excuses', duration: '2:15'}
+     ]
+ };
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
