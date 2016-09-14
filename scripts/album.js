@@ -73,10 +73,29 @@ var albumPicasso = {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
 };
+// Quesion: Since in line 77 we select the first element of the class, how come the code from line 84 - 86 prints out whatever table row element it hovers over?
+var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+var songRows = document.getElementsByClassName('album-view-song-item');
+//Button Template
+var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 
 window.onload = function() {
-     setCurrentAlbum(albumKymil);
- };
+    setCurrentAlbum(albumKymil);
+ 
+    songListContainer.addEventListener('mouseover', function(event) {
+        if (event.target.parentElement.className === 'album-view-song-item') {
+             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+         }
+    });
+
+    for (var i = 0; i < songRows.length; i++) {
+         songRows[i].addEventListener('mouseleave', function(event) {
+            this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+
+         });
+     }
+};
+
 
 var artist = document.getElementsByClassName("album-view-artist")[0];
 
