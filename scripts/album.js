@@ -107,12 +107,21 @@ function findParentByClassName(element, parentClass) {
     // check if element is true
         if(element){
             var elementParent = element.parentElement;
+            if(elementParent === null){
+                alert("No parent found");
+            }
             // while element has a parent or parent doesn't belong to parentClass
                 while(elementParent.className !== parentClass && elementParent.className !== null){
                     // Traverses up parents
                     elementParent = elementParent.parentElement;
                 }
-                return elementParent;
+                
+                if(elementParent.className === parentClass){
+                    return elementParent;    
+                } else {
+                    alert("No parent found with that class name.")
+                }
+                
         } else {
             alert('element doesnt exist');
         }     
