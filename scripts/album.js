@@ -1,3 +1,12 @@
+ var setSong = function(songNumber) {
+    currentlyPlayingSongNumber = songNumber;
+    currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+ }; 
+
+var getSongNumberCell = function(number) {
+    return $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+};
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -15,7 +24,7 @@
 
         if (currentlyPlayingSongNumber !== null) {
             // Revert to song number for currently playing song because user started playing new song.
-            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+            getSongNumberCell()
             console.log(currentlyPlayingCell);
             // currentlyPlayingCell.html(currentlyPlayingSongNumber);
             // console.log(currentlyPlayingCell);
@@ -23,8 +32,8 @@
         if (currentlyPlayingSongNumber !== songNumber) {
             // Switch from Play -> Pause button to indicate new song is playing.
             $(this).html(pauseButtonTemplate);
-            currentlyPlayingSongNumber = songNumber;
-            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+            setSong();
+            /////
             updatePlayerBarSong();
         } else if (currentlyPlayingSongNumber === songNumber) {
             // Switch from Pause -> Play button to pause currently playing song.
@@ -101,8 +110,9 @@ var trackIndex = function(album, song) {
     }
     
     // Set a new current song
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong();
+    currentlyPlayingSongNumber++;
+    currentSongFromAlbum--;
 
     // Update the Player Bar information
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
@@ -132,8 +142,9 @@ var trackIndex = function(album, song) {
     }
     
     // Set a new current song
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong();
+    currentlyPlayingSongNumber++;
+    currentSongFromAlbum--;
 
     // Update the Player Bar information
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
