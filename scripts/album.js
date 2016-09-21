@@ -17,6 +17,27 @@
     }
  };
 
+ var togglePlayFromPlayerBar = function() {
+    // if a song is paused and player bar play button is clicked
+    if(currentSoundFile.isPaused()){
+      // change song number cell to a pause button
+      songNumberCell.html = pauseButtonTemplate;
+      // change html of the player bar's play button to a pause button
+      playerBarPlayButton.html = playerBarPauseButton;
+      // play the song
+      currentSoundFile.play();  
+      // else if a song is playing and the pause button is clicked
+    } else if(currentSoundFile.isPaused() === false) {
+      // change the song number cell to a play button
+      songNumberCell.html = playButtonTemplate;
+      // change html of the player bar's pause button to a play button
+      playerBarPauseButton.html = playerBarPlayButton;
+      // pause the song
+      currentSoundFile.pause();
+    }
+ };
+
+
 var getSongNumberCell = function(number) {
     return $('.song-item-number[data-song-number="' + number + '"]');
 };
@@ -209,10 +230,17 @@ var playerBarPauseButton = '<span class="ion-pause"></span>';
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
 
+ var mainControlsPlayPause = $('.main-controls .play-pause');
+ mainControlsPlayPause.click();
+
 $(document).ready(function(){
     setCurrentAlbum(albumKymil);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    // block with togglePlayFromPlayerBar function
+
+
+
 });
 
 
