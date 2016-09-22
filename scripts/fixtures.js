@@ -10,7 +10,7 @@ var albumPicasso = {
          { title: 'Green', duration: '3:14', audioUrl: 'assets/music/green' },
          { title: 'Red', duration: '5:01', audioUrl: 'assets/music/red' },
          { title: 'Pink', duration: '3:21', audioUrl: 'assets/music/pink'},
-         { title: 'Magenta', duration: '2:15', , audioUrl: 'assets/music/magenta'}
+         { title: 'Magenta', duration: '2:15', audioUrl: 'assets/music/magenta'}
      ]
  };
 
