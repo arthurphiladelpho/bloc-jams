@@ -21,7 +21,6 @@
       // Select first element with a class of album-covers
       // var collectionContainer = document.getElementsByClassName('album-covers')[0];
       var $collectionContainer = $('.album-covers');
-      console.log($collectionContainer);
       // Ensure string is cleared
       // collectionContainer.innerHTML = '';
       $collectionContainer.empty();
