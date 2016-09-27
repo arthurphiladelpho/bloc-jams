@@ -46,7 +46,8 @@ var createSongRow = function(songNumber, songName, songLength) {
       var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
       currentlyPlayingCell.html(currentlyPlayingSongNumber);
       // console.log(currentlyPlayingCell);
-    } else if (currentlyPlayingSongNumber !== songNumber) {
+    } 
+    if (currentlyPlayingSongNumber !== songNumber) {
       $(this).html(pauseButtonTemplate);
       currentlyPlayingSongNumber = songNumber;
       //play song
