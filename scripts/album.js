@@ -19,6 +19,7 @@ var setSong = function(songNumber){
     formats: [ "mp3"],
     preload: true
   });
+  setVolume(currentVolume);
 }; 
 
 var setVolume = function(volumeValue) {
@@ -50,18 +51,21 @@ var createSongRow = function(songNumber, songName, songLength) {
       // Revert to song number for currently playing song because user started playing new song.
       var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
       parseInt(currentlyPlayingCell.html(currentlyPlayingSongNumber));
-      
+      currentSoundFile.play();
     } 
     if (currentlyPlayingSongNumber !== songNumber) {
       $(this).html(pauseButtonTemplate);
       currentlyPlayingSongNumber = parseInt(songNumber);
       currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
       updatePlayerBarSong();
-    } else if (currentlyPlayingSongNumber === songNumber) {
+      currentSoundFile.play();
+
+    } else if (isPaused(currentSoundFile)) {
       $(this).html(playButtonTemplate);
       $('.main-controls .play-pause').html(playerBarPlayButton);
        currentSongFromAlbum = null;
       currentlyPlayingSongNumber = null;
+      currentSoundFile.play();
     }
   };
 
