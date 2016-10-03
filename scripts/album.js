@@ -72,7 +72,7 @@ var createSongRow = function(songNumber, songName, songLength) {
   var onHover = function(event){
     //What do we wanna do onHover?
     // Find the element within this that has a class of .song-item-number
-    var songNumberCell = parseInt($(this).find('.song-item-number'));
+    var songNumberCell = $(this).find('.song-item-number');
     songNumber = parseInt(songNumberCell.attr('data-song-number'));
     // console.log('onHover', songNumber);
     if (songNumber !== currentlyPlayingSongNumber) {
@@ -81,7 +81,7 @@ var createSongRow = function(songNumber, songName, songLength) {
   };
 
   var offHover = function(event){
-    var songNumberCell = parseInt($(this).find('.song-item-number'));
+    var songNumberCell = $(this).find('.song-item-number');
     songNumber = parseInt(songNumberCell.attr('data-song-number'));
     // console.log('offHover', songNumber);
     if (songNumber !== currentlyPlayingSongNumber) {
