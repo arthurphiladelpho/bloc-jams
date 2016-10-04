@@ -75,6 +75,7 @@ var createSongRow = function(songNumber, songName, songLength) {
       if(currentSoundFile.isPaused()){
         currentSoundFile.play();
         $(this).html(pauseButtonTemplate);
+
         updatePlayerBarSong();
       } else {
         console.log("Called");
@@ -210,22 +211,24 @@ var previousSong = function() {
  var $nextButton = $('.main-controls .next');
 
  var togglePlayFromPlayerBar = function(){
-  // if song is paused and play button is pressed
-  // if(isPaused(currentSoundFile) && btn is clicked)
-    // change songNumberCell to a pause button
-    // change playerBarButton to pause button
-    // play song
-  // if song is playing and pause button is clicked
-    // change songNumberCell to a play button
-    // change playerBarButton to play button
-    // pause song
+  var numberCell = getSongNumberCell(currentlyPlayingSongNumber);
+  console.log("getting called!!");
+  if(currentSoundFile.isPaused()){
+    controls.html(playerBarPauseButton);
+    numberCell.html(pauseButtonTemplate);
+    currentSoundFile.play();
+  } else {
+    controls.html(playerBarPlayButton);
+    numberCell.html(playButtonTemplate);
+    currentSoundFile.pause();
+  }
  };
 
 $(document).ready(function(){
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-    // controls.click(togglePlayFromPlayerBar());
+    controls.click(togglePlayFromPlayerBar);
 });
 
 
